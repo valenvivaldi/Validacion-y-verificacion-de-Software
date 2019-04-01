@@ -41,8 +41,9 @@ public class SimpleRoutines {
 	* @param list is the array of integers to calculate the largest number from.
 	* @return The largest number in the given array
 	*/
-	public static Integer largest(Integer[] list) { 
-		int index = 1;
+	public static Integer largest(Integer[] list) throws IllegalArgumentException{ 
+		if(list == null || list.length==0) {throw new IllegalArgumentException();}
+		int index =0 ;
 		int max = Integer.MIN_VALUE;
 		while (index <= list.length-1) {
 			if (list[index] > max) {
@@ -71,7 +72,24 @@ public class SimpleRoutines {
 	
 	
 	public static void selectionSort(int[] array) {
-		//TODO
+		int minimo;
+		int aux;
+		for (int i = 0; i < array.length; i++) {
+			minimo = i;
+			for (int j = i+1; j < array.length; j++) {
+				if(array[j]<array[minimo]) {
+					minimo=j;
+				}
+
+
+
+			}
+			aux=array[i];
+			array[i]=array[minimo];
+			array[minimo]=aux;
+			
+		}
+
 	}
 
 	/**
@@ -82,8 +100,8 @@ public class SimpleRoutines {
 	public static boolean capicua(char[] list) {
 		int index = 0;
 		int l = list.length;
-		while(index<(l-1)){
-			if(list[index] != list[(l-index)]){  
+		while(index<(l-1)/2){
+			if(list[index] != list[(l-1-index)]){  
 					return false;
 			}
 			index++;
