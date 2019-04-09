@@ -72,6 +72,56 @@ public void lengthEqual(@LinkedListStackGen(amount = 100, maxLength = 10 ) PilaS
         assertTrue(s.length()==oldsize && checktop);
 }
 
+// tests para mejorar cobertura
+@Test(expected=PilaException.class)
+public void testExceptionPop() {
+	PilaSobreListasEnlazadas s = new PilaSobreListasEnlazadas();
+	s.pop();
+}
+
+@Test
+public void testClean() {
+	PilaSobreListasEnlazadas s = new PilaSobreListasEnlazadas();
+	for(int i=0; i< 120;i++) {
+		s.push(new Integer(i));
+	}
+	s.clean();
+	assertTrue(s.isEmpty());
+}
+@Test(expected=PilaException.class)
+public void testExceptionClean2() {
+	PilaSobreListasEnlazadas s = new PilaSobreListasEnlazadas();
+	for(int i=0; i< 120;i++) {
+		s.push(new Integer(i));
+	}
+	s.clean();
+	s.top();
+}
+
+//ejercicio3 PREGUNTAR SI ES NECESARIO TESTEAR OPERACIONES QUE NO MODIFICAN LA PILA
+@Test
+public void consistentTestConstructor() {
+	PilaSobreListasEnlazadas s = new PilaSobreListasEnlazadas();
+	assertTrue(s.isConsistent());
+}
+@Theory
+public void consistentTestPlus(@LinkedListStackGen(amount = 100, maxLength = 10 ) PilaSobreListasEnlazadas s) {
+        assumeTrue(s!=null && s.isConsistent() );
+        Random r = new Random();
+        s.push(r.nextInt());
+        assertTrue(s.isConsistent());
+}
+@Theory
+public void consistentTestLess(@LinkedListStackGen(amount = 100, maxLength = 10 ) PilaSobreListasEnlazadas s) {
+        assumeTrue(s!=null &&(!s.isEmpty()) && s.isConsistent());
+        s.pop();
+        assertTrue(s.isConsistent());
+}
+
+
+
+
+
 
 
 }

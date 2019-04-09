@@ -1,5 +1,7 @@
 package takehome1;
 
+import java.util.LinkedList;
+
 /**
  * Implementacion del TAD Pila, usando  una lista simplemente encadenada.
  * Esta clase implementa los métodos abstractos declarados en Pila.
@@ -137,7 +139,20 @@ public class PilaSobreListasEnlazadas implements Stack {
 	 * sobre la que se implementa)  es aciclica.
      */	
     public boolean isConsistent(){
-    	//HACER
+    	Entry actual = top;
+    	LinkedList<Entry> visitados=new LinkedList<Entry>();
+    	while (actual!=null) {
+			if(visitados.contains(actual)) {
+				return false;
+			}else {
+				visitados.add(actual);
+			}
+			actual=actual.getNext();
+		}
+    	
+    	if(visitados.size()!=numItems) {
+    		return false;
+    	}
         return true;
     	
     }

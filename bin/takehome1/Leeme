@@ -30,5 +30,7 @@ ademas hay metodos que no se han cubierto con los tests como .clean() y en metod
 son usados por la clase PilaSobreListasEnlazadas, un ejemplo de esto es el constructor de Entry que tiene un Entero
 como parametro (el valor de info)
 
-
+NOTAS: 
+	-El bloque catch de push() no se puede cubrir puesto que ningun metdo usado en el bloque
+	try lanza excepciones
 
