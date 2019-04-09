@@ -15,7 +15,7 @@ public class StaticRoutines {
                 res = true;
             }
             i++;
-        }
+        }	
         return res;
     }
 	
@@ -23,7 +23,7 @@ public class StaticRoutines {
 	
 	public static boolean isEven(int x){
 		if(x<0)
-			x=0;
+			x=0-x;
 		if(x%2 ==0)
 			return true;
 		else
@@ -42,8 +42,9 @@ public class StaticRoutines {
 		int index = 0;
 		int l = list.length;
 		boolean res = true;
-		while(index<(l-1)){
-			if(list[index] != list[(l-index)]){
+		while(index<(l)){
+			
+			if(list[index] != list[(l-index-1)]){
 					res= false;
 			}
 			index++;
@@ -54,7 +55,7 @@ public class StaticRoutines {
 	
 	public static int contarPares(int[] array) {
 		  int cantPares = 0;
-		  for (int i=0; i<=array.length; i++) {
+		  for (int i=0; i<array.length; i++) {
 		    if (array[i] % 2 == 0) cantPares++; 
 		  }
 		  return cantPares;
@@ -66,11 +67,12 @@ public class StaticRoutines {
 	public static int mcd(int x, int y) {
 		int a = x;
 		int b = y;
-		while (b != 0) {
+		while (b != 0 && a != 0) {
 		    if (a >= b)
-		        a = a - b;
+		        a = a % b;
+		    	
 		    else
-		        b = b - a;
+		        b = b % a;
 		}
 		return a;
 	}

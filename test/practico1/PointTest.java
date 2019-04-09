@@ -1,14 +1,14 @@
 package practico1;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.*;
+
 
 class PointTest {
 	Point punto;
 	Point punto2;
-	@BeforeEach
+	@BeforeClass
 	void setUp() throws Exception {
 		punto =  new Point (10,15);
 		punto2 =  new Point (15,10);

@@ -1,0 +1,34 @@
+EJERCICIO 2
+-----------------------------------------------------------------------
+Pit Test Coverage Report
+
+Package Summary
+
+takehome1
+
+Number of Classes	Line Coverage	Mutation Coverage
+
+3					76% 41/54		55% 12/22
+
+
+Breakdown by Class
+
+Name							Line Coverage	Mutation Coverage
+
+Entry.java						73% 8/11		50% 1/2
+
+LinkedListStackGenSupplier.java	100% 12/12		75% 6/8
+
+PilaSobreListasEnlazadas.java	68% 21/31		42% 5/12
+---------------------------------------------------------------------------
+
+La covertura de ramas, permite dilusidar que, en general no se estan cubriendo las ramas
+en las que los metodos del TAD pila implementado con listas enlazadas lanzaria una excepcion
+por ejemplo: cuando se quiere hacer un .pop() con la pila vacia 
+
+ademas hay metodos que no se han cubierto con los tests como .clean() y en metodos de la clase Entry que no 
+son usados por la clase PilaSobreListasEnlazadas, un ejemplo de esto es el constructor de Entry que tiene un Entero
+como parametro (el valor de info)
+
+
+

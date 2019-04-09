@@ -76,6 +76,14 @@ public class BoundedQueue {
 	}
 	
 	public String toString(){
-		return elems.toString();
+		String res="{";
+		for(int i =0; i<elems.length;i++){
+			if(i!=0) {
+				res=res+",";
+			}
+			res=elems[i].toString();
+		}
+		res=res+"}";
+		return res;
 	}
 }

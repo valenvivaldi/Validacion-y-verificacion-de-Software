@@ -39,4 +39,17 @@ public class BoundedQueueTest {
 		
 		assertThat(e, is(equalTo(1)));
 	}
+	
+	@Test
+	public void test4() {
+		Integer [] qe = {0,1,2};
+		BoundedQueue q = new BoundedQueue(Arrays.asList(qe));
+		assertTrue(q.toString() == "{0,1,2}");
+		}
+	@Test
+	public void test5() {
+		Integer [] qe = {};
+		BoundedQueue q = new BoundedQueue(Arrays.asList(qe));
+		assertTrue(q.toString() == "{}");
+	}
 }
