@@ -30,7 +30,6 @@ public @interface LinkedListStackGen {
 
 @Theory
 public void lengthPlus(@LinkedListStackGen(amount = 100, maxLength = 10 ) PilaSobreListasEnlazadas s) {
-        assumeNotNull(s);
         Random r = new Random();
         int oldsize =s.length();
         s.push(r.nextInt());
@@ -98,7 +97,7 @@ public void testExceptionClean2() {
 	s.top();
 }
 
-//ejercicio3 PREGUNTAR SI ES NECESARIO TESTEAR OPERACIONES QUE NO MODIFICAN LA PILA
+
 @Test
 public void consistentTestConstructor() {
 	PilaSobreListasEnlazadas s = new PilaSobreListasEnlazadas();
@@ -121,6 +120,16 @@ public void consistentTestLess(@LinkedListStackGen(amount = 100, maxLength = 10 
 
 
 
+
+
+
+///Agregado de test para la cobertura de Entry.java
+@Test
+public void constructorAltEntry() {
+	Entry a = new Entry(5);
+	assertTrue(a.getInfo()==5);
+	
+}
 
 
 

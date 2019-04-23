@@ -1,4 +1,7 @@
-EJERCICIO 2
+Integrantes: Joaquin Zabala y Valentin Vivaldi
+
+
+EJERCICIO 2 Mutation Score
 -----------------------------------------------------------------------
 Pit Test Coverage Report
 
@@ -6,20 +9,34 @@ Package Summary
 
 takehome1
 
-Number of Classes	Line Coverage	Mutation Coverage
-
-3					76% 41/54		55% 12/22
-
-
+Number of Classes					Line Coverage	Mutation Coverage
+3							92% 58/63	78% 21/27
 Breakdown by Class
 
 Name							Line Coverage	Mutation Coverage
 
-Entry.java						73% 8/11		50% 1/2
+Entry.java						100% 11/11	    100% 2/2
 
-LinkedListStackGenSupplier.java	100% 12/12		75% 6/8
 
-PilaSobreListasEnlazadas.java	68% 21/31		42% 5/12
+PilaSobreListasEnlazadas.java				88% 35/40	     76% 13/17
+
+
+
+NOTAS SOBREVIVIENTES "PilaSobreListasEnlazadas.java":
+- linea 77: Sobrevive debido a que en ningun test se observa el 
+campo Info de ningun entry, se podria solucionar verificando
+que en el test "lengthEqual", que el entero de el tope sea igual.
+
+-linea 121: Este mutante no muere debido a que solo se testea el top, 
+comparandolo con otro top viendo si son iguales, al retornar siempre
+null el test pasa.
+
+-linea 146 y 154: no se pueden cubrir debido a que no podemos acceder a los campos
+privados de la pila y modificar la estructura para romper el invariante, ya que solo se puede
+modificar la estructura con sus metodos
+
+
+
 ---------------------------------------------------------------------------
 
 La covertura de ramas, permite dilusidar que, en general no se estan cubriendo las ramas
@@ -28,7 +45,7 @@ por ejemplo: cuando se quiere hacer un .pop() con la pila vacia
 
 ademas hay metodos que no se han cubierto con los tests como .clean() y en metodos de la clase Entry que no 
 son usados por la clase PilaSobreListasEnlazadas, un ejemplo de esto es el constructor de Entry que tiene un Entero
-como parametro (el valor de info)
+como parametro (el valor de info). Para esto se agregaron test unitarios de esta pequeña clase
 
 NOTAS: 
 	-El bloque catch de push() no se puede cubrir puesto que ningun metdo usado en el bloque
