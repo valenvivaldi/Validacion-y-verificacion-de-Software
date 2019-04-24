@@ -1,4 +1,4 @@
-Integrantes: Joaquin Zabala y Valentin vivaldi
+Integrantes: Joaquin Zabala y Valentin Vivaldi
 
 
 EJERCICIO 2 Mutation Score
@@ -9,15 +9,16 @@ Package Summary
 
 takehome1
 
-Number of Classes	Line Coverage	Mutation Coverage
-3	92% 58/63	78% 21/27
+Number of Classes					Line Coverage	Mutation Coverage
+3							92% 58/63	78% 21/27
 Breakdown by Class
 
 Name							Line Coverage	Mutation Coverage
+
 Entry.java						100% 11/11	    100% 2/2
 
 
-PilaSobreListasEnlazadas.java	88% 35/40	     76% 13/17
+PilaSobreListasEnlazadas.java				88% 35/40	     76% 13/17
 
 
 
