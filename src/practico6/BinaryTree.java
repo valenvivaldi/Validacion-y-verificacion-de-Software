@@ -1,17 +1,23 @@
 package practico6;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
+import korat.examples.singlylinkedlist.SerializableObject;
 import korat.finitization.IClassDomain;
 import korat.finitization.IFinitization;
 import korat.finitization.IObjSet;
 import korat.finitization.impl.FinitizationFactory;
 
-public class BinaryTree {
+public class BinaryTree implements Serializable{
 
-    public Entry root;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public Entry root;
     public int size;
            
     public boolean repOK() {
@@ -40,6 +46,7 @@ public class BinaryTree {
     }
 
   
+   
     
      public static IFinitization finBinaryTree(int nodesNum, int minSize,
              int maxSize, int numKeys) {
@@ -57,10 +64,12 @@ public class BinaryTree {
          
          f.set("root", nodes);
          f.set("size", f.createIntSet(minSize, maxSize));
-         f.set("Node.info",keys);
-         f.set("Node.left", nodes);
-         f.set("Node.right", nodes);
+         f.set("Entry.info",keys);
+         f.set("Entry.left", nodes);
+         f.set("Entry.right", nodes); 
          return f;
      }
+     
+
 }
 

@@ -1,0 +1,1 @@
+java -cp korat.jar:bin/ korat.Korat  --class practico6.BinaryTree --args 3,3,3,4

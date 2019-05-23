@@ -18,6 +18,7 @@ public class FuncionCuadratica {
      * @post. 
      */
     public FuncionCuadratica() {
+    	a=1;
     }
 
     /**
@@ -29,7 +30,11 @@ public class FuncionCuadratica {
      * @post. 
      */
     public FuncionCuadratica(float a, float b, float c) {
-        this.a = a;
+        if(a!=0) {
+        	this.a = a;	
+        }else {
+        	this.a=1;
+        }
         this.b = b;
         this.c = c;
     }
@@ -41,7 +46,10 @@ public class FuncionCuadratica {
      * @post. this.a = a.
      */
     public void setA(float a) {
-        this.a = a;
+    	if (a!=0) {
+    		this.a = a;	
+    	}
+
     }
 
     /**
@@ -154,7 +162,20 @@ public class FuncionCuadratica {
      * PolinomioException.
      */
     public Object raices() throws PolinomioException {
-        return null; //TODO
+    	if(this.determinante()<0) {
+    		throw new PolinomioException("El determinante es negativo");
+    	}
+    	
+    	
+    	if (this.numRaices()==1) {
+    		 
+    		return new Float((-b)/(2*a));
+    	}else {
+    		Float first = new Float((-b+determinante())/(2*a));
+    		Float second = new Float((-b-determinante())/(2*a));
+    		return new Pair<Float, Float>(first, second); 
+    	}
+
     }
 
     /**
@@ -181,7 +202,7 @@ public class FuncionCuadratica {
      * @pre. true
      * @post. return = (a!=0.0)
      */
-
+@CheckRep
     public boolean repOk() {
         return (a!=0.0);
     }

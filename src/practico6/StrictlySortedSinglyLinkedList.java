@@ -1,6 +1,7 @@
 package practico6;
 
 import java.util.Set;
+import java.io.Serializable;
 import java.util.HashSet;
 
 import korat.finitization.IClassDomain;
@@ -13,9 +14,13 @@ import korat.finitization.impl.FinitizationFactory;
  * Class  StrictlySortedSinglyLinkedList defines Strictly Sorted, Singly linked List 
  * @author 
  */
-public class StrictlySortedSinglyLinkedList{
+public class StrictlySortedSinglyLinkedList implements Serializable{
 
-    public Node header;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public Node header;
     public int size = 0;
    
     public StrictlySortedSinglyLinkedList(){
@@ -137,7 +142,7 @@ public class StrictlySortedSinglyLinkedList{
     public static IFinitization finStrictlySortedSinglyLinkedList(int minSize, int maxSize,
             int numEntries, int numElems) {
         IFinitization f = FinitizationFactory.create(StrictlySortedSinglyLinkedList.class);
-       
+        IObjSet nodes= f.createObjSet(Node.class, numEntries, true);
         //HACER
         return f;
 

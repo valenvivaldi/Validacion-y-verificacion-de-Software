@@ -1,11 +1,11 @@
-package practico5;
+package practico5node;
 
 
 /****************************************************************************
 Taking (and then modified) from an implementation of NodeCachingList of Juan Pablo Galeotti 
 and Marcelo Frias, Relational Formal Methods 
 Group, University of Buenos Aires and Buenos Aires Institute of Technology,
-Buenos Aires, Argentina.
+Buenos Aires, Argentina. 
 
 ****************************************************************************/
 

@@ -1,4 +1,4 @@
-package practico5;
+package practico5node;
 
 import java.util.Set;
 
@@ -28,9 +28,9 @@ public class NodeCachingLinkedList{
 	/**
 	 * The maximum size of the cache.
 	 */
-	private  int maximumCacheSize;
+	private  int maximumCacheSize=20;
 
-	public static final int DEFAULT_MAXIMUM_CACHE_SIZE = 20;
+	//public static final int DEFAULT_MAXIMUM_CACHE_SIZE = 20;
 
 	public NodeCachingLinkedList(){
 		header = new LinkedListNode();
@@ -229,15 +229,14 @@ public class NodeCachingLinkedList{
 	   //************** From now on repOK()  *************************************
 	   //*************************************************************************
 	  
-	/**
+	/**  
 	 * @Invariant 
-	 *		( this.header!=null ) &&
-	 *		( this.header.next!=null ) &&
-	 *		( this.header.previous!=null ) &&
-	 *		( this.size==#(this.header.*next @- null)-1 ) &&
-	 *		( this.size>=0 ) &&
-	 *		( this.cacheSize <= this.maximumCacheSize ) &&
-	 *		( this.DEFAULT_MAXIMUM_CACHE_SIZE == 20 ) &&
+	 *		( this.header!=null ) &&       V
+	 *		( this.header.next!=null ) && V
+	 *		( this.header.previous!=null ) && V
+	 *		( this.size>=0 ) &&    V
+	 *		( this.cacheSize <= this.maximumCacheSize ) && V
+	 *		( this.DEFAULT_MAXIMUM_CACHE_SIZE == 20 ) && V
 	 *		( cacheSize == number of nodes in the cachelist) &&
 	 *		(for all node m in the cachelist, m.previous==null && m.value==null) &&
 	 *		(cachelist is acyclic) &&
@@ -259,7 +258,7 @@ public class NodeCachingLinkedList{
 	        if (this.cacheSize > this.maximumCacheSize)
 	          return false;
 
-	        if (this.DEFAULT_MAXIMUM_CACHE_SIZE != 20)
+	        if (this.maximumCacheSize != 20)
 	          return false;
 
 	        if (this.size < 0)
