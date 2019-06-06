@@ -24,18 +24,23 @@ VAL[v:Bool] = ( setTrue -> VAL[True]
 VECINO1=(
 		flag1.setTrue->flag2[i:Bool]->(
 			when(i==True) flag1.setFalse ->VECINO1
-			 |when(i==False) recojeMoras1 ->flag1.setFalse->VECINO1
+			 |when(i==False) entra->recojeMoras ->sale ->flag1.setFalse->VECINO1
 		))+Actions.
 
 
 VECINO2=(
 		flag2.setTrue->flag1[i:Bool]->(
 			when(i==True) flag2.setFalse ->VECINO2
-			 |when(i==False) recojeMoras2 ->flag2.setFalse->VECINO2
+			 |when(i==False) entra->recojeMoras ->sale->flag2.setFalse->VECINO2
 		))+Actions.
 
 
+property MUTEX=( v1.entra->v1.recojeMoras->v1.sale->MUTEX 
+				|v2.entra->v2.recojeMoras->v2.sale->MUTEX 
+				
+).
 
-|| EJERCICIO = (v1:VECINO1||v2:VECINO2||{v1,v2}::flag1:BOOLVAR||{v1,v2}::flag2:BOOLVAR).
+||EJERCICIO = (v1:VECINO1||v2:VECINO2||{v1,v2}::flag1:BOOLVAR||{v1,v2}::flag2:BOOLVAR).
 
+||CHECK = (EJERCICIO||MUTEX).
 
