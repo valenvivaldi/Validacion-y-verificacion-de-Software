@@ -39,6 +39,9 @@ property MUTEX=( v1.entra->v1.recojeMoras->v1.sale->MUTEX
 				|v2.entra->v2.recojeMoras->v2.sale->MUTEX 
 				
 ).
+progress Recoge1 = {v1.recojeMoras}
+progress Recoge2 = {v2.recojeMoras}
+
 
 ||EJERCICIO = (v1:VECINO1||v2:VECINO2||{v1,v2}::flag1:BOOLVAR||{v1,v2}::flag2:BOOLVAR).
 
