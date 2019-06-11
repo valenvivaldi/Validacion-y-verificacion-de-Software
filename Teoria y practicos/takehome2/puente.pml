@@ -12,7 +12,7 @@ bit hereSAFE[4]={0,0,0,0};
 
 
 
-ltl p0 {(<>(time >60))}
+ltl p0 {(<>(time >50))}
 
 active proctype Unsafe(){	
 	

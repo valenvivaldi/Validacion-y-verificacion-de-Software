@@ -1,0 +1,7 @@
+never p0 {    /* !(<> ((time>50))) */
+accept_init:
+T0_init:
+	do
+	:: (! (((time>50)))) -> goto T0_init
+	od;
+}
